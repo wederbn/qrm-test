@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1dwrxar" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.2.0-nightly.20200827">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1dwrxar" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.2.0-nightly.20200827">
   <bpmn:process id="Process_1lx0kac" isExecutable="true">
-    <bpmn:subProcess id="Task_08if683" name="Test Subprocess" camunda:modelerTemplate="com.camunda.example.ExecutionListener">
-      <bpmn:extensionElements>
-        <camunda:executionListener event="start">
-          <camunda:script scriptFormat="groovy">println execution.eventName</camunda:script>
-        </camunda:executionListener>
-        <camunda:executionListener event="end">
-          <camunda:script scriptFormat="groovy">println end</camunda:script>
-        </camunda:executionListener>
-      </bpmn:extensionElements>
+    <bpmn:subProcess id="Task_08if683" name="Test Subprocess">
+      <bpmn:documentation>TEST____TEST</bpmn:documentation>
       <bpmn:startEvent id="StartEvent_0k5iv6p">
         <bpmn:outgoing>SequenceFlow_1mryalo</bpmn:outgoing>
       </bpmn:startEvent>
