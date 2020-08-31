@@ -4,7 +4,7 @@
     <quantme:quantumCircuitLoadingTask id="Task_0z5udr0" url="test">
       <quantme:quantumCircuit>*</quantme:quantumCircuit>
     </quantme:quantumCircuitLoadingTask>
-  </bpmn:process>
+  </bpmn:process> 
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_03e1olx">
       <bpmndi:BPMNShape id="QuantumCircuitLoadingTask_01l801i_di" bpmnElement="Task_0z5udr0">
