@@ -8,7 +8,7 @@
       </bpmn:startEvent>
       <bpmn:endEvent id="EndEvent_1daz3x8">
         <bpmn:incoming>SequenceFlow_06a3rsw</bpmn:incoming>
-      </bpmn:endEvent>
+      </bpmn:endEvent> 
       <bpmn:userTask id="Task_058gom4">
         <bpmn:incoming>SequenceFlow_1mryalo</bpmn:incoming>
         <bpmn:outgoing>SequenceFlow_06a3rsw</bpmn:outgoing>
