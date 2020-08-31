@@ -2,7 +2,7 @@
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:quantme="https://github.com/UST-QuAntiL/QuantME-Quantum4BPMN" id="Definitions_1roy9h8" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.2.0-nightly.20200826">
   <bpmn:process id="Process_03e1olx" isExecutable="true">
     <quantme:quantumComputationTask id="Task_0z5udr0" algorithm="Shor" provider="*" />
-  </bpmn:process>
+  </bpmn:process> 
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_03e1olx">
       <bpmndi:BPMNShape id="QuantumComputationTask_0u3wss0_di" bpmnElement="Task_0z5udr0">
