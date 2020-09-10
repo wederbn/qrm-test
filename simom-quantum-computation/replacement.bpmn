@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:quantme="https://github.com/UST-QuAntiL/QuantME-Quantum4BPMN" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_085inip" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.2.0">
+  <bpmn:process id="Process_1ubp1vg" isExecutable="true">
+    <bpmn:subProcess id="SubProcess_0af9lc0">
+      <bpmn:startEvent id="StartEvent_08hpiyh">
+        <bpmn:outgoing>SequenceFlow_01ieltk</bpmn:outgoing>
+      </bpmn:startEvent>
+      <quantme:quantumCircuitLoadingTask id="Task_0yogfk8" name="Load Quantum Circuit" url="https://raw.githubusercontent.com/UST-QuAntiL/QuantME-UseCase/master/circuits/simon-base.py">
+        <bpmn:incoming>SequenceFlow_01ieltk</bpmn:incoming>
+        <bpmn:outgoing>SequenceFlow_1o9uhy9</bpmn:outgoing>
+      </quantme:quantumCircuitLoadingTask>
+      <bpmn:sequenceFlow id="SequenceFlow_01ieltk" sourceRef="StartEvent_08hpiyh" targetRef="Task_0yogfk8" />
+      <bpmn:sequenceFlow id="SequenceFlow_1o9uhy9" sourceRef="Task_0yogfk8" targetRef="Task_1ubksez" />
+      <quantme:oracleExpansionTask id="Task_1ubksez" name="Replace Oracle" oracleId="1" oracleURL="$input:Oracle-URL" programmingLanguage="OpenQASM">
+        <bpmn:incoming>SequenceFlow_1o9uhy9</bpmn:incoming>
+        <bpmn:outgoing>SequenceFlow_0x0917q</bpmn:outgoing>
+      </quantme:oracleExpansionTask>
+      <bpmn:endEvent id="EndEvent_1qvkji0">
+        <bpmn:incoming>SequenceFlow_0x0917q</bpmn:incoming>
+      </bpmn:endEvent>
+      <bpmn:sequenceFlow id="SequenceFlow_0x0917q" sourceRef="Task_1ubksez" targetRef="EndEvent_1qvkji0" />
+    </bpmn:subProcess>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1ubp1vg">
+      <bpmndi:BPMNShape id="SubProcess_0af9lc0_di" bpmnElement="SubProcess_0af9lc0" isExpanded="true">
+        <dc:Bounds x="160" y="60" width="800" height="220" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_01ieltk_di" bpmnElement="SequenceFlow_01ieltk">
+        <di:waypoint x="236" y="160" />
+        <di:waypoint x="290" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1o9uhy9_di" bpmnElement="SequenceFlow_1o9uhy9">
+        <di:waypoint x="390" y="160" />
+        <di:waypoint x="440" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0x0917q_di" bpmnElement="SequenceFlow_0x0917q">
+        <di:waypoint x="540" y="160" />
+        <di:waypoint x="602" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="StartEvent_08hpiyh_di" bpmnElement="StartEvent_08hpiyh">
+        <dc:Bounds x="200" y="142" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="QuantumCircuitLoadingTask_1mpjj7u_di" bpmnElement="Task_0yogfk8">
+        <dc:Bounds x="290" y="120" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="OracleExpansionTask_1e9mxz1_di" bpmnElement="Task_1ubksez">
+        <dc:Bounds x="440" y="120" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1qvkji0_di" bpmnElement="EndEvent_1qvkji0">
+        <dc:Bounds x="602" y="142" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
