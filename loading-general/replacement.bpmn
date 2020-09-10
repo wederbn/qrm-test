@@ -16,8 +16,13 @@
       <bpmn:sequenceFlow id="SequenceFlow_1mryalo" sourceRef="StartEvent_0k5iv6p" targetRef="Task_058gom4" />
       <bpmn:sequenceFlow id="SequenceFlow_06a3rsw" sourceRef="Task_058gom4" targetRef="EndEvent_1daz3x8" />
       <bpmn:boundaryEvent id="IntermediateThrowEvent_10o25yw" attachedToRef="Task_058gom4">
+        <bpmn:outgoing>SequenceFlow_0iu7pdt</bpmn:outgoing>
         <bpmn:errorEventDefinition id="ErrorEventDefinition_1tmvcwu" />
       </bpmn:boundaryEvent>
+      <bpmn:sequenceFlow id="SequenceFlow_0iu7pdt" sourceRef="IntermediateThrowEvent_10o25yw" targetRef="IntermediateThrowEvent_1e7u9we" />
+      <bpmn:endEvent id="IntermediateThrowEvent_1e7u9we">
+        <bpmn:incoming>SequenceFlow_0iu7pdt</bpmn:incoming>
+      </bpmn:endEvent>
     </bpmn:subProcess>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -38,6 +43,11 @@
         <di:waypoint x="248" y="280" />
         <di:waypoint x="300" y="280" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0iu7pdt_di" bpmnElement="SequenceFlow_0iu7pdt">
+        <di:waypoint x="370" y="338" />
+        <di:waypoint x="370" y="370" />
+        <di:waypoint x="432" y="370" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="StartEvent_0k5iv6p_di" bpmnElement="StartEvent_0k5iv6p">
         <dc:Bounds x="212" y="262" width="36" height="36" />
       </bpmndi:BPMNShape>
@@ -46,6 +56,9 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="UserTask_00vuzhn_di" bpmnElement="Task_058gom4">
         <dc:Bounds x="300" y="240" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0r4ophx_di" bpmnElement="IntermediateThrowEvent_1e7u9we">
+        <dc:Bounds x="432" y="352" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BoundaryEvent_1irmae9_di" bpmnElement="IntermediateThrowEvent_10o25yw">
         <dc:Bounds x="352" y="302" width="36" height="36" />
