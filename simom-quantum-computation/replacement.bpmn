@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:quantme="https://github.com/UST-QuAntiL/QuantME-Quantum4BPMN" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_085inip" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.2.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:quantme="https://github.com/UST-QuAntiL/QuantME-Quantum4BPMN" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_085inip" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.3.0-nightly.20200910">
   <bpmn:process id="Process_1ubp1vg" isExecutable="true">
     <bpmn:subProcess id="SubProcess_0af9lc0">
       <bpmn:startEvent id="StartEvent_08hpiyh">
@@ -15,10 +15,20 @@
         <bpmn:incoming>SequenceFlow_1o9uhy9</bpmn:incoming>
         <bpmn:outgoing>SequenceFlow_0x0917q</bpmn:outgoing>
       </quantme:oracleExpansionTask>
-      <bpmn:endEvent id="EndEvent_1qvkji0">
+      <bpmn:sequenceFlow id="SequenceFlow_0x0917q" sourceRef="Task_1ubksez" targetRef="ExclusiveGateway_17c29cd" />
+      <bpmn:exclusiveGateway id="ExclusiveGateway_17c29cd">
         <bpmn:incoming>SequenceFlow_0x0917q</bpmn:incoming>
+        <bpmn:outgoing>SequenceFlow_1mu0qxf</bpmn:outgoing>
+      </bpmn:exclusiveGateway>
+      <bpmn:sequenceFlow id="SequenceFlow_1mu0qxf" sourceRef="ExclusiveGateway_17c29cd" targetRef="Task_06f67nh" />
+      <quantme:quantumCircuitExecutionTask id="Task_06f67nh" name="Execute Circuit" provider="IBMQ" qpu="ibmq_rome" shots="1024" programmingLanguage="OpenQASM">
+        <bpmn:incoming>SequenceFlow_1mu0qxf</bpmn:incoming>
+        <bpmn:outgoing>SequenceFlow_0pdbwy2</bpmn:outgoing>
+      </quantme:quantumCircuitExecutionTask>
+      <bpmn:endEvent id="EndEvent_1at7tjb">
+        <bpmn:incoming>SequenceFlow_0pdbwy2</bpmn:incoming>
       </bpmn:endEvent>
-      <bpmn:sequenceFlow id="SequenceFlow_0x0917q" sourceRef="Task_1ubksez" targetRef="EndEvent_1qvkji0" />
+      <bpmn:sequenceFlow id="SequenceFlow_0pdbwy2" sourceRef="Task_06f67nh" targetRef="EndEvent_1at7tjb" />
     </bpmn:subProcess>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -26,17 +36,25 @@
       <bpmndi:BPMNShape id="SubProcess_0af9lc0_di" bpmnElement="SubProcess_0af9lc0" isExpanded="true">
         <dc:Bounds x="160" y="60" width="800" height="220" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="SequenceFlow_01ieltk_di" bpmnElement="SequenceFlow_01ieltk">
-        <di:waypoint x="236" y="160" />
-        <di:waypoint x="290" y="160" />
+      <bpmndi:BPMNEdge id="SequenceFlow_0x0917q_di" bpmnElement="SequenceFlow_0x0917q">
+        <di:waypoint x="540" y="160" />
+        <di:waypoint x="585" y="160" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1o9uhy9_di" bpmnElement="SequenceFlow_1o9uhy9">
         <di:waypoint x="390" y="160" />
         <di:waypoint x="440" y="160" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="SequenceFlow_0x0917q_di" bpmnElement="SequenceFlow_0x0917q">
-        <di:waypoint x="540" y="160" />
-        <di:waypoint x="602" y="160" />
+      <bpmndi:BPMNEdge id="SequenceFlow_01ieltk_di" bpmnElement="SequenceFlow_01ieltk">
+        <di:waypoint x="236" y="160" />
+        <di:waypoint x="290" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1mu0qxf_di" bpmnElement="SequenceFlow_1mu0qxf">
+        <di:waypoint x="635" y="160" />
+        <di:waypoint x="670" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0pdbwy2_di" bpmnElement="SequenceFlow_0pdbwy2">
+        <di:waypoint x="770" y="160" />
+        <di:waypoint x="812" y="160" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="StartEvent_08hpiyh_di" bpmnElement="StartEvent_08hpiyh">
         <dc:Bounds x="200" y="142" width="36" height="36" />
@@ -47,8 +65,14 @@
       <bpmndi:BPMNShape id="OracleExpansionTask_1e9mxz1_di" bpmnElement="Task_1ubksez">
         <dc:Bounds x="440" y="120" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="EndEvent_1qvkji0_di" bpmnElement="EndEvent_1qvkji0">
-        <dc:Bounds x="602" y="142" width="36" height="36" />
+      <bpmndi:BPMNShape id="ExclusiveGateway_17c29cd_di" bpmnElement="ExclusiveGateway_17c29cd" isMarkerVisible="true">
+        <dc:Bounds x="585" y="135" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="QuantumCircuitExecutionTask_1kbvkye_di" bpmnElement="Task_06f67nh">
+        <dc:Bounds x="670" y="120" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1at7tjb_di" bpmnElement="EndEvent_1at7tjb">
+        <dc:Bounds x="812" y="142" width="36" height="36" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
