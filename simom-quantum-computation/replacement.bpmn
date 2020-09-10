@@ -52,15 +52,21 @@
       </bpmn:endEvent>
       <bpmn:sequenceFlow id="SequenceFlow_0pmpzst" sourceRef="Task_1jezvgc" targetRef="EndEvent_1v4e6kr" />
       <bpmn:boundaryEvent id="IntermediateThrowEvent_11i1u73" attachedToRef="Task_06f67nh">
+        <bpmn:outgoing>SequenceFlow_0xmreln</bpmn:outgoing>
         <bpmn:errorEventDefinition id="ErrorEventDefinition_1p2hm2s" />
       </bpmn:boundaryEvent>
       <bpmn:sequenceFlow id="SequenceFlow_1xo5uy3" sourceRef="ExclusiveGateway_0tydp96" targetRef="ExclusiveGateway_17c29cd" />
+      <bpmn:sequenceFlow id="SequenceFlow_0xmreln" sourceRef="IntermediateThrowEvent_11i1u73" targetRef="EndEvent_0k3rszh" />
+      <bpmn:endEvent id="EndEvent_0k3rszh">
+        <bpmn:incoming>SequenceFlow_0xmreln</bpmn:incoming>
+        <bpmn:errorEventDefinition id="ErrorEventDefinition_0ivrrph" />
+      </bpmn:endEvent>
     </bpmn:subProcess>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1ubp1vg">
       <bpmndi:BPMNShape id="SubProcess_0af9lc0_di" bpmnElement="SubProcess_0af9lc0" isExpanded="true">
-        <dc:Bounds x="160" y="50" width="1250" height="230" />
+        <dc:Bounds x="160" y="50" width="1250" height="260" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0x0917q_di" bpmnElement="SequenceFlow_0x0917q">
         <di:waypoint x="540" y="160" />
@@ -104,6 +110,11 @@
         <di:waypoint x="610" y="80" />
         <di:waypoint x="610" y="135" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0xmreln_di" bpmnElement="SequenceFlow_0xmreln">
+        <di:waypoint x="740" y="218" />
+        <di:waypoint x="740" y="270" />
+        <di:waypoint x="812" y="270" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="StartEvent_08hpiyh_di" bpmnElement="StartEvent_08hpiyh">
         <dc:Bounds x="200" y="142" width="36" height="36" />
       </bpmndi:BPMNShape>
@@ -133,6 +144,9 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="EndEvent_1v4e6kr_di" bpmnElement="EndEvent_1v4e6kr">
         <dc:Bounds x="1332" y="142" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0wqxzgz_di" bpmnElement="EndEvent_0k3rszh">
+        <dc:Bounds x="812" y="252" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BoundaryEvent_1pnrnzw_di" bpmnElement="IntermediateThrowEvent_11i1u73">
         <dc:Bounds x="722" y="182" width="36" height="36" />
