@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1dwrxar" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.2.0-nightly.20200828">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1dwrxar" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.3.0-nightly.20200910">
   <bpmn:process id="Process_1lx0kac" isExecutable="true">
     <bpmn:subProcess id="Task_08if683" name="Test Subprocess">
       <bpmn:documentation>TEST____TEST</bpmn:documentation>
@@ -8,23 +8,22 @@
       </bpmn:startEvent>
       <bpmn:endEvent id="EndEvent_1daz3x8">
         <bpmn:incoming>SequenceFlow_06a3rsw</bpmn:incoming>
-      </bpmn:endEvent> 
+      </bpmn:endEvent>
       <bpmn:userTask id="Task_058gom4">
         <bpmn:incoming>SequenceFlow_1mryalo</bpmn:incoming>
         <bpmn:outgoing>SequenceFlow_06a3rsw</bpmn:outgoing>
       </bpmn:userTask>
       <bpmn:sequenceFlow id="SequenceFlow_1mryalo" sourceRef="StartEvent_0k5iv6p" targetRef="Task_058gom4" />
-      <bpmn:sequenceFlow id="SequenceFlow_06a3rsw" name="Test123" sourceRef="Task_058gom4" targetRef="EndEvent_1daz3x8" />
-      <bpmn:textAnnotation id="TextAnnotation_0zhj9hi">
-        <bpmn:text>Test</bpmn:text>
-      </bpmn:textAnnotation>
-      <bpmn:association id="Association_0y4f6gb" sourceRef="Task_058gom4" targetRef="TextAnnotation_0zhj9hi" />
+      <bpmn:sequenceFlow id="SequenceFlow_06a3rsw" sourceRef="Task_058gom4" targetRef="EndEvent_1daz3x8" />
+      <bpmn:boundaryEvent id="IntermediateThrowEvent_10o25yw" attachedToRef="Task_058gom4">
+        <bpmn:errorEventDefinition id="ErrorEventDefinition_1tmvcwu" />
+      </bpmn:boundaryEvent>
     </bpmn:subProcess>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1lx0kac">
       <bpmndi:BPMNShape id="SubProcess_0f3p2va_di" bpmnElement="Task_08if683" isExpanded="true">
-        <dc:Bounds x="160" y="80" width="450" height="280" />
+        <dc:Bounds x="160" y="80" width="450" height="350" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_06a3rsw_di" bpmnElement="SequenceFlow_06a3rsw">
         <di:waypoint x="400" y="280" />
@@ -48,13 +47,9 @@
       <bpmndi:BPMNShape id="UserTask_00vuzhn_di" bpmnElement="Task_058gom4">
         <dc:Bounds x="300" y="240" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_0zhj9hi_di" bpmnElement="TextAnnotation_0zhj9hi">
-        <dc:Bounds x="490" y="200" width="100" height="30" />
+      <bpmndi:BPMNShape id="BoundaryEvent_1irmae9_di" bpmnElement="IntermediateThrowEvent_10o25yw">
+        <dc:Bounds x="352" y="302" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Association_0y4f6gb_di" bpmnElement="Association_0y4f6gb">
-        <di:waypoint x="400" y="263" />
-        <di:waypoint x="496" y="230" />
-      </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
