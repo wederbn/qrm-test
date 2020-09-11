@@ -57,7 +57,7 @@
       </bpmn:boundaryEvent>
       <bpmn:sequenceFlow id="SequenceFlow_1xo5uy3" sourceRef="ExclusiveGateway_0tydp96" targetRef="ExclusiveGateway_17c29cd" />
       <bpmn:sequenceFlow id="SequenceFlow_0xmreln" sourceRef="IntermediateThrowEvent_11i1u73" targetRef="EndEvent_0k3rszh" />
-      <bpmn:endEvent id="EndEvent_0k3rszh">
+      <bpmn:endEvent id="EndEvent_0k3rszh" name="Inform user over failed execution">
         <bpmn:incoming>SequenceFlow_0xmreln</bpmn:incoming>
         <bpmn:errorEventDefinition id="ErrorEventDefinition_0ivrrph" />
       </bpmn:endEvent>
@@ -66,7 +66,7 @@
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1ubp1vg">
       <bpmndi:BPMNShape id="SubProcess_0af9lc0_di" bpmnElement="SubProcess_0af9lc0" isExpanded="true">
-        <dc:Bounds x="160" y="50" width="1250" height="260" />
+        <dc:Bounds x="160" y="50" width="1250" height="280" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0xmreln_di" bpmnElement="SequenceFlow_0xmreln">
         <di:waypoint x="740" y="218" />
@@ -147,6 +147,9 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="EndEvent_0wqxzgz_di" bpmnElement="EndEvent_0k3rszh">
         <dc:Bounds x="812" y="252" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="789" y="295" width="82" height="27" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BoundaryEvent_1pnrnzw_di" bpmnElement="IntermediateThrowEvent_11i1u73">
         <dc:Bounds x="722" y="182" width="36" height="36" />
