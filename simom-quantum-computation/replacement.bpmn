@@ -51,13 +51,13 @@
         <bpmn:incoming>SequenceFlow_0pmpzst</bpmn:incoming>
       </bpmn:endEvent>
       <bpmn:sequenceFlow id="SequenceFlow_0pmpzst" sourceRef="Task_1jezvgc" targetRef="EndEvent_1v4e6kr" />
-      <bpmn:boundaryEvent id="IntermediateThrowEvent_11i1u73" name="Invalid Access Key" attachedToRef="Task_06f67nh">
+      <bpmn:boundaryEvent id="IntermediateThrowEvent_11i1u73" attachedToRef="Task_06f67nh">
         <bpmn:outgoing>SequenceFlow_0xmreln</bpmn:outgoing>
         <bpmn:errorEventDefinition id="ErrorEventDefinition_1p2hm2s" />
       </bpmn:boundaryEvent>
       <bpmn:sequenceFlow id="SequenceFlow_1xo5uy3" sourceRef="ExclusiveGateway_0tydp96" targetRef="ExclusiveGateway_17c29cd" />
       <bpmn:sequenceFlow id="SequenceFlow_0xmreln" sourceRef="IntermediateThrowEvent_11i1u73" targetRef="EndEvent_0k3rszh" />
-      <bpmn:endEvent id="EndEvent_0k3rszh" name="Inform user over failed execution">
+      <bpmn:endEvent id="EndEvent_0k3rszh">
         <bpmn:incoming>SequenceFlow_0xmreln</bpmn:incoming>
         <bpmn:errorEventDefinition id="ErrorEventDefinition_0ivrrph" />
       </bpmn:endEvent>
@@ -66,7 +66,7 @@
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1ubp1vg">
       <bpmndi:BPMNShape id="SubProcess_0af9lc0_di" bpmnElement="SubProcess_0af9lc0" isExpanded="true">
-        <dc:Bounds x="160" y="50" width="1250" height="280" />
+        <dc:Bounds x="160" y="50" width="1250" height="260" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0xmreln_di" bpmnElement="SequenceFlow_0xmreln">
         <di:waypoint x="740" y="218" />
