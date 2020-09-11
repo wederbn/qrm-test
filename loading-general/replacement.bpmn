@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1dwrxar" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.3.0-nightly.20200910">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1dwrxar" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.3.0-nightly.20200911">
   <bpmn:process id="Process_1lx0kac" isExecutable="true">
     <bpmn:subProcess id="Task_08if683" name="Test Subprocess">
       <bpmn:documentation>TEST____TEST</bpmn:documentation>
@@ -20,8 +20,18 @@
         <bpmn:errorEventDefinition id="ErrorEventDefinition_1tmvcwu" />
       </bpmn:boundaryEvent>
       <bpmn:sequenceFlow id="SequenceFlow_0iu7pdt" sourceRef="IntermediateThrowEvent_10o25yw" targetRef="IntermediateThrowEvent_1e7u9we" />
+      <bpmn:boundaryEvent id="IntermediateThrowEvent_0eg6nbr" attachedToRef="Task_058gom4">
+        <bpmn:outgoing>SequenceFlow_0vmj8sp</bpmn:outgoing>
+        <bpmn:timerEventDefinition id="TimerEventDefinition_0qn63uq" />
+      </bpmn:boundaryEvent>
+      <bpmn:sequenceFlow id="SequenceFlow_0vmj8sp" sourceRef="IntermediateThrowEvent_0eg6nbr" targetRef="EndEvent_1usjidb" />
+      <bpmn:endEvent id="EndEvent_1usjidb">
+        <bpmn:incoming>SequenceFlow_0vmj8sp</bpmn:incoming>
+        <bpmn:errorEventDefinition id="ErrorEventDefinition_0tcrkk3" />
+      </bpmn:endEvent>
       <bpmn:endEvent id="IntermediateThrowEvent_1e7u9we">
         <bpmn:incoming>SequenceFlow_0iu7pdt</bpmn:incoming>
+        <bpmn:escalationEventDefinition id="EscalationEventDefinition_0rw8zme" />
       </bpmn:endEvent>
     </bpmn:subProcess>
   </bpmn:process>
@@ -30,6 +40,11 @@
       <bpmndi:BPMNShape id="SubProcess_0f3p2va_di" bpmnElement="Task_08if683" isExpanded="true">
         <dc:Bounds x="160" y="80" width="450" height="350" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0iu7pdt_di" bpmnElement="SequenceFlow_0iu7pdt">
+        <di:waypoint x="370" y="338" />
+        <di:waypoint x="370" y="370" />
+        <di:waypoint x="432" y="370" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_06a3rsw_di" bpmnElement="SequenceFlow_06a3rsw">
         <di:waypoint x="400" y="280" />
         <di:waypoint x="461" y="280" />
@@ -43,10 +58,9 @@
         <di:waypoint x="248" y="280" />
         <di:waypoint x="300" y="280" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="SequenceFlow_0iu7pdt_di" bpmnElement="SequenceFlow_0iu7pdt">
-        <di:waypoint x="370" y="338" />
-        <di:waypoint x="370" y="370" />
-        <di:waypoint x="432" y="370" />
+      <bpmndi:BPMNEdge id="SequenceFlow_0vmj8sp_di" bpmnElement="SequenceFlow_0vmj8sp">
+        <di:waypoint x="320" y="338" />
+        <di:waypoint x="320" y="382" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="StartEvent_0k5iv6p_di" bpmnElement="StartEvent_0k5iv6p">
         <dc:Bounds x="212" y="262" width="36" height="36" />
@@ -57,11 +71,17 @@
       <bpmndi:BPMNShape id="UserTask_00vuzhn_di" bpmnElement="Task_058gom4">
         <dc:Bounds x="300" y="240" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="EndEvent_0r4ophx_di" bpmnElement="IntermediateThrowEvent_1e7u9we">
+      <bpmndi:BPMNShape id="EndEvent_0o0egki_di" bpmnElement="EndEvent_1usjidb">
+        <dc:Bounds x="302" y="382" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1mqmbsa_di" bpmnElement="IntermediateThrowEvent_1e7u9we">
         <dc:Bounds x="432" y="352" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BoundaryEvent_1irmae9_di" bpmnElement="IntermediateThrowEvent_10o25yw">
         <dc:Bounds x="352" y="302" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BoundaryEvent_1uehorl_di" bpmnElement="IntermediateThrowEvent_0eg6nbr">
+        <dc:Bounds x="302" y="302" width="36" height="36" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
