@@ -36,13 +36,13 @@
         <bpmn:incoming>SequenceFlow_1i4m7w6</bpmn:incoming>
         <bpmn:outgoing>SequenceFlow_1xdxihw</bpmn:outgoing>
       </bpmn:serviceTask>
-      <bpmn:exclusiveGateway id="ExclusiveGateway_0tydp96">
+      <bpmn:exclusiveGateway id="ExclusiveGateway_0tydp96" name="n-1 linear independen results?">
         <bpmn:incoming>SequenceFlow_1xdxihw</bpmn:incoming>
         <bpmn:outgoing>SequenceFlow_1fori30</bpmn:outgoing>
         <bpmn:outgoing>SequenceFlow_1xo5uy3</bpmn:outgoing>
       </bpmn:exclusiveGateway>
       <bpmn:sequenceFlow id="SequenceFlow_1xdxihw" sourceRef="Task_0ylo5eo" targetRef="ExclusiveGateway_0tydp96" />
-      <bpmn:sequenceFlow id="SequenceFlow_1fori30" sourceRef="ExclusiveGateway_0tydp96" targetRef="Task_1jezvgc" />
+      <bpmn:sequenceFlow id="SequenceFlow_1fori30" name="yes" sourceRef="ExclusiveGateway_0tydp96" targetRef="Task_1jezvgc" />
       <bpmn:serviceTask id="Task_1jezvgc" name="Solve Linear System of Equations" camunda:type="external" camunda:topic="solve-linear-system">
         <bpmn:incoming>SequenceFlow_1fori30</bpmn:incoming>
         <bpmn:outgoing>SequenceFlow_0pmpzst</bpmn:outgoing>
@@ -55,7 +55,7 @@
         <bpmn:outgoing>SequenceFlow_0xmreln</bpmn:outgoing>
         <bpmn:errorEventDefinition id="ErrorEventDefinition_1p2hm2s" />
       </bpmn:boundaryEvent>
-      <bpmn:sequenceFlow id="SequenceFlow_1xo5uy3" sourceRef="ExclusiveGateway_0tydp96" targetRef="ExclusiveGateway_17c29cd" />
+      <bpmn:sequenceFlow id="SequenceFlow_1xo5uy3" name="no" sourceRef="ExclusiveGateway_0tydp96" targetRef="ExclusiveGateway_17c29cd" />
       <bpmn:sequenceFlow id="SequenceFlow_0xmreln" sourceRef="IntermediateThrowEvent_11i1u73" targetRef="EndEvent_0k3rszh" />
       <bpmn:endEvent id="EndEvent_0k3rszh">
         <bpmn:incoming>SequenceFlow_0xmreln</bpmn:incoming>
@@ -78,6 +78,9 @@
         <di:waypoint x="1130" y="80" />
         <di:waypoint x="610" y="80" />
         <di:waypoint x="610" y="135" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1143" y="103" width="13" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0pmpzst_di" bpmnElement="SequenceFlow_0pmpzst">
         <di:waypoint x="1290" y="160" />
@@ -86,6 +89,9 @@
       <bpmndi:BPMNEdge id="SequenceFlow_1fori30_di" bpmnElement="SequenceFlow_1fori30">
         <di:waypoint x="1155" y="160" />
         <di:waypoint x="1190" y="160" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1164" y="142" width="17" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1xdxihw_di" bpmnElement="SequenceFlow_1xdxihw">
         <di:waypoint x="1070" y="160" />
@@ -138,6 +144,9 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="ExclusiveGateway_0tydp96_di" bpmnElement="ExclusiveGateway_0tydp96" isMarkerVisible="true">
         <dc:Bounds x="1105" y="135" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1101" y="192" width="58" height="40" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="ServiceTask_04hgk7m_di" bpmnElement="Task_1jezvgc">
         <dc:Bounds x="1190" y="120" width="100" height="80" />
