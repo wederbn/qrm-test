@@ -16,7 +16,7 @@
         <bpmn:outgoing>SequenceFlow_0mr726a</bpmn:outgoing>
       </bpmn:receiveTask>
       <bpmn:sequenceFlow id="SequenceFlow_0mr726a" sourceRef="Task_0uytb1d" targetRef="Task_1aw5scj" />
-      <bpmn:serviceTask id="Task_1aw5scj" name="Apply Correction Matrix" camunda:type="external" camunda:topic="applyCorrectionMatrix">
+      <bpmn:serviceTask id="Task_1aw5scj" name="Apply Inverted Correction Matrix" camunda:type="external" camunda:topic="applyCorrectionMatrix">
         <bpmn:incoming>SequenceFlow_0mr726a</bpmn:incoming>
         <bpmn:outgoing>SequenceFlow_0riz0ix</bpmn:outgoing>
       </bpmn:serviceTask>
