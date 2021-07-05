@@ -27,7 +27,7 @@
         <bpmn:outgoing>SequenceFlow_1slafxz</bpmn:outgoing>
       </quantme:quantumCircuitExecutionTask>
       <bpmn:sequenceFlow id="SequenceFlow_1slafxz" sourceRef="Task_06f67nh" targetRef="Task_0i7dvvk" />
-      <quantme:readoutErrorMitigationTask id="Task_0i7dvvk" name="Mitigate Readout-Error" unfoldingTechnique="Matrix Inversion" qpu="ibmq_rome">
+      <quantme:readoutErrorMitigationTask id="Task_0i7dvvk" name="Mitigate Readout-Error" unfoldingTechnique="Matrix Inversion" provider="IBMQ" qpu="ibmq_rome">
         <bpmn:incoming>SequenceFlow_1slafxz</bpmn:incoming>
         <bpmn:outgoing>SequenceFlow_1i4m7w6</bpmn:outgoing>
       </quantme:readoutErrorMitigationTask>
