@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:quantme="https://github.com/UST-QuAntiL/QuantME-Quantum4BPMN" id="Definitions_1bd5tyb" targetNamespace="http://bpmn.io/schema/bpmn" exporter="QuantME Modeler" exporterVersion="4.4.0">
   <bpmn:process id="Process_1twxlpw" isExecutable="true">
-    <quantme:readoutErrorMitigationTask id="Task_0pqrpmn" unfoldingTechnique="Correction Matrix" provider="IBMQ" qpu="ibmq_rome, ibmq_london" maxAge="*" />
+    <quantme:readoutErrorMitigationTask id="Task_0ry549t" unfoldingTechnique="Correction Matrix" provider="IBMQ" qpu="ibmq_rome, ibmq_london" maxAge="*" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1twxlpw">
-      <bpmndi:BPMNShape id="ReadoutErrorMitigationTask_0iunb90_di" bpmnElement="Task_0pqrpmn">
-        <dc:Bounds x="160" y="80" width="100" height="80" />
+      <bpmndi:BPMNShape id="ReadoutErrorMitigationTask_19o8uhm_di" bpmnElement="Task_0ry549t">
+        <dc:Bounds x="160" y="40" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
